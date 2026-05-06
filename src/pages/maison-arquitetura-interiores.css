@@ -1,0 +1,591 @@
+:root {
+  --black: #0c0c0a;
+  --dark: #141410;
+  --charcoal: #1e1e18;
+  --gold: #c9a84c;
+  --gold-light: #e5c876;
+  --gold-dim: rgba(201, 168, 76, 0.3);
+  --white: #f8f6f0;
+  --off: #d4cfc4;
+  --muted: rgba(248, 246, 240, 0.45);
+  --border: rgba(201, 168, 76, 0.15);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+.maison-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(12, 12, 10, 0.92);
+  backdrop-filter: blur(16px);
+}
+.maison-nav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.maison-nav-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.3em;
+  color: var(--white);
+  font-weight: 400;
+}
+.maison-nav-tagline {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.maison-nav-links {
+  display: flex;
+  gap: 3rem;
+}
+.maison-nav-links a {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+.maison-nav-links a:hover {
+  color: var(--gold);
+}
+.maison-nav-cta {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.7rem 2rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.maison-nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.maison-hero {
+  height: 130vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 5rem 6rem;
+  overflow: hidden;
+}
+
+.maison-hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.maison-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  filter: grayscale(30%);
+}
+.maison-hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      var(--gold) 0px,
+      var(--gold) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      var(--gold) 0px,
+      var(--gold) 1px,
+      transparent 1px,
+      transparent 60px
+    );
+}
+.maison-hero-content {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: end;
+  width: 100%;
+}
+.maison-hero-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.maison-ornament-line {
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+}
+.maison-ornament-text {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.maison-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.maison-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.maison-hero-sub {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 460px;
+  margin-bottom: 3rem;
+}
+.maison-hero-btns {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.maison-btn-gold {
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+.maison-btn-gold:hover {
+  background: var(--gold-light);
+  box-shadow: 0 4px 30px rgba(201, 168, 76, 0.35);
+}
+.maison-btn-ghost-gold {
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: gap 0.3s;
+}
+.maison-btn-ghost-gold::after {
+  content: "→";
+  font-size: 1rem;
+}
+.maison-btn-ghost-gold:hover {
+  gap: 1.2rem;
+}
+
+.maison-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-end;
+}
+.maison-hero-stat-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: right;
+}
+.maison-stat-big {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+.maison-stat-desc {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+.maison-hero-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+.maison-award-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+.maison-award {
+  text-align: center;
+}
+.maison-award-year {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+.maison-award-name {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.maison-portfolio {
+  padding: 8rem 5rem;
+}
+.maison-section-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+.maison-section-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.maison-section-line {
+  width: 2rem;
+  height: 1px;
+  background: var(--gold);
+}
+.maison-section-tag-text {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.maison-section-h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+.maison-proj {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--charcoal);
+}
+.maison-proj-inner {
+  padding-bottom: 65%;
+  position: relative;
+}
+.maison-proj:nth-child(1) .maison-proj-inner {
+  padding-bottom: 55%;
+}
+.maison-proj:nth-child(2) .maison-proj-inner {
+  padding-bottom: 120%;
+}
+.maison-proj:nth-child(3) .maison-proj-inner {
+  padding-bottom: 60%;
+}
+.maison-proj:nth-child(4) .maison-proj-inner {
+  padding-bottom: 60%;
+}
+.maison-proj-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.7s ease;
+  overflow: hidden;
+}
+.maison-proj-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+.maison-proj:hover .maison-proj-bg img {
+  transform: scale(1.06);
+}
+.maison-proj-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12, 12, 10, 0.9) 0%,
+    transparent 60%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  transition: opacity 0.4s;
+}
+.maison-proj-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.maison-proj-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+.maison-proj-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.maison-services {
+  padding: 8rem 5rem;
+  background: var(--dark);
+}
+.maison-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+}
+.maison-svc-card {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+.maison-svc-num {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.maison-svc-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.maison-svc-card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+.maison-svc-includes {
+  list-style: none;
+}
+.maison-svc-includes li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.maison-svc-includes li::before {
+  content: "—";
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+.maison-price-from {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 0.3rem;
+}
+.maison-price-val {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.maison-testimonial-section {
+  padding: 8rem 5rem;
+  text-align: center;
+}
+.maison-big-quote {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--off);
+  line-height: 1.6;
+  max-width: 780px;
+  margin: 4rem auto 3rem;
+  position: relative;
+}
+.maison-big-quote::before {
+  content: '"';
+  font-size: 8rem;
+  color: var(--gold-dim);
+  position: absolute;
+  top: -4rem;
+  left: -3rem;
+  font-family: "Playfair Display", serif;
+  line-height: 1;
+}
+.maison-quote-source {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+.maison-cta-section {
+  padding: 0 5rem 10rem;
+}
+.maison-cta-inner {
+  border: 1px solid var(--border);
+  background: var(--charcoal);
+  padding: 5rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.maison-cta-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.04));
+}
+.maison-cta-inner h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.maison-cta-inner h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.maison-cta-inner p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+.maison-cta-right {
+  position: relative;
+  z-index: 1;
+}
+.maison-cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.maison-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.maison-cta-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  padding: 1rem 1.2rem;
+  color: var(--white);
+  font-family: "Jost", sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+.maison-cta-input::placeholder {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+.maison-cta-input:focus {
+  border-color: var(--gold);
+}
+.maison-cta-input[aria-hidden] {
+}
+textarea.maison-cta-input {
+  resize: none;
+  height: 100px;
+}
+
+.maison-footer {
+  padding: 2.5rem 5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.maison-footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+}
+.maison-footer p {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.maison-hero-left > * {
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+.maison-hero-left > *:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.maison-hero-left > *:nth-child(2) {
+  animation-delay: 0.55s;
+}
+.maison-hero-left > *:nth-child(3) {
+  animation-delay: 0.75s;
+}
+.maison-hero-left > *:nth-child(4) {
+  animation-delay: 0.95s;
+}
+.maison-hero-right {
+  animation: fadeUp 1.2s 0.5s ease forwards;
+  opacity: 0;
+}
