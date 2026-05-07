@@ -111,32 +111,13 @@ const MaisonArquiteturaInteriores: React.FC = () => {
             </div>
             <h2 className="maison-section-h2">Projetos recentes</h2>
           </div>
-          <a
-            href="#contato"
-            className="maison-btn-ghost-gold"
-            style={{
-              fontSize: "0.72rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "var(--gold)",
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.8rem",
-            }}
-          >
+          <a href="#contato" className="maison-btn-ghost-gold maison-portfolio-link">
             Ver todos os projetos
           </a>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.6fr 1fr",
-            gap: "1.5rem",
-          }}
-        >
-          <div className="maison-proj" style={{ gridRow: "span 2" }}>
+        <div className="maison-portfolio-grid">
+          <div className="maison-proj maison-proj-featured">
             <div className="maison-proj-inner" style={{ paddingBottom: "90%" }}>
               <div className="maison-proj-bg">
                 <img
@@ -308,14 +289,7 @@ const MaisonArquiteturaInteriores: React.FC = () => {
                 className="maison-cta-input"
                 placeholder="Fale um pouco sobre seu projeto..."
               />
-              <button
-                className="maison-btn-gold"
-                style={{
-                  width: "100%",
-                  padding: "1.1rem",
-                  fontSize: "0.75rem",
-                }}
-              >
+              <button className="maison-btn-gold maison-cta-submit">
                 Solicitar orçamento
               </button>
             </div>
